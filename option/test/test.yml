@@ -1,0 +1,56 @@
+name: CasMemVSR_Vid4
+model_type: VideoRecurrentModel
+scale: 4
+num_gpu: auto  
+manual_seed: 0
+
+datasets:
+  test_1:  # the 1st test dataset
+    name: Vid4
+    type: VideoRecurrentTestDataset
+    dataroot_gt: dataset/Vid4/GT
+    dataroot_lq: dataset/Vid4/BIx4
+    cache_data: true
+    io_backend:
+      type: disk
+    # num_frame: 7
+    num_frame: -1
+
+
+# network structures
+network_g:
+  type: CasaMEMVSR
+  mid_channels: 64
+  extract_blocks: 3
+  propagation_blocks: 5
+  # img_prop_blocks: 3
+  recons_blocks: 3
+  GFN_blocks: 2
+  is_low_res_input: True
+  propagation_branches: ['forward_1']
+  cpu_cache_length: 100
+
+# path
+path:
+  pretrain_network_g: premodel/Vid4_BI.pth
+  strict_load_g: true
+  param_key_g: params_ema
+
+# validation settings
+val:
+  save_img: true
+  # flip_seq: true
+  flip_seq: true
+  # center_frame_only: true ## only for Vimeo90K-Test
+  center_frame_only: false
+  suffix: ~  # add suffix to saved images, if None, use exp name
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 0
+      test_y_channel: true
+    ssim:
+      type: calculate_ssim
+      crop_border: 0
+      test_y_channel: true

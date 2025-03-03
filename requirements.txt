@@ -1,0 +1,12 @@
+addict
+future
+lmdb
+Pillow
+pyyaml
+requests
+scikit-image
+scipy
+tb-nightly
+opencv-python
+tqdm
+yapf

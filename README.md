@@ -19,6 +19,21 @@
 ### To do
 - [ ] Release training code
 
+### How to evaluate
+- **Requirements**
+  - Python 3.8
+  - PyTorch 1.13
+- **Installation**
+  ```bash
+  pip install -r requirements.txt
+  python setup.py develop
+  ```
+- **Run the following command to test the model**
+  ```bash
+  bash test.sh
+  ```
+
+
 ### Results
 - **Quantitative Results**
 <img width="800" src="./assets/quantitative_results.png">

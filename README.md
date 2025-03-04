@@ -46,11 +46,11 @@ If this work is helpful for your research, please consider citing the following 
 ```
 @article{li2024ctun,
     title={Cascaded Temporal Updating Network for Efficient Video Super-Resolution},
-    author={Li, Hao and Dong, Jiangxin and Tang, Jinhui and Pan, Jinshan},
+    author={Li, Hao and Dong, Jiangxin and Pan, Jinshan},
     journal={arXiv preprint arXiv:2408.14244},
     year={2024}
  }
- ```
+```
 
 ### Acknowledgement
 The README template is borrowed from [SAFMN](https://github.com/sunny2109/SAFMN). Thanks for the awesome work.
